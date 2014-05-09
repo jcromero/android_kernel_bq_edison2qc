@@ -51,6 +51,10 @@
 #define IPP_VERSION "rk30-ipp 1.003"
 #endif
 
+#ifdef CONFIG_ARCH_RK3188
+#define IPP_VERSION "rk30-ipp 1.003"
+#endif
+
 //#define IPP_TEST
 #ifdef IPP_TEST
 
