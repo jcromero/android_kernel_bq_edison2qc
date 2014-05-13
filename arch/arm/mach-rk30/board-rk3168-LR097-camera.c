@@ -26,7 +26,7 @@
 #elif defined(CONFIG_MALATA_D7022)
 #define CONFIG_SENSOR_ORIENTATION_0 	  180
 #else
-#define CONFIG_SENSOR_ORIENTATION_0 	  90
+#define CONFIG_SENSOR_ORIENTATION_0 	  270
 #endif
 #define CONFIG_SENSOR_POWER_PIN_0		  INVALID_GPIO
 #define CONFIG_SENSOR_RESET_PIN_0		  INVALID_GPIO
@@ -52,7 +52,7 @@
 #define CONFIG_SENSOR_720P_FPS_FIXED_0		15000
 
 #define CONFIG_SENSOR_01  RK29_CAM_SENSOR_GT2005                   /* back camera sensor 1 */
-#define CONFIG_SENSOR_IIC_ADDR_01 	              0x78 
+#define CONFIG_SENSOR_IIC_ADDR_01 	              0x78
 #define CONFIG_SENSOR_CIF_INDEX_01                    0
 #define CONFIG_SENSOR_IIC_ADAPTER_ID_01    3
 #if defined(CONFIG_MALATA_D8006)
@@ -69,7 +69,7 @@
 #define CONFIG_SENSOR_TORCH_PIN_01         CONFIG_SENSOR_TORCH_PIN
 #define CONFIG_SENSOR_POWERACTIVE_LEVEL_01 RK29_CAM_POWERACTIVE_L
 #define CONFIG_SENSOR_RESETACTIVE_LEVEL_01 RK29_CAM_RESETACTIVE_L
-#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_01 RK29_CAM_POWERDNACTIVE_L   
+#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_01 RK29_CAM_POWERDNACTIVE_L
 #define CONFIG_SENSOR_FLASHACTIVE_LEVEL_01 CONFIG_SENSOR_FLASHACTIVE_LEVEL
 #define CONFIG_SENSOR_TORCHACTIVE_LEVEL_01 CONFIG_SENSOR_TORCHACTIVE_LEVEL
 #define CONFIG_SENSOR_DVDD_VALUE_01 VDD_18V
@@ -252,7 +252,7 @@
 #define CONFIG_SENSOR_TORCH_PIN_12         INVALID_GPIO
 #define CONFIG_SENSOR_POWERACTIVE_LEVEL_12 RK29_CAM_POWERACTIVE_L
 #define CONFIG_SENSOR_RESETACTIVE_LEVEL_12 RK29_CAM_RESETACTIVE_L
-#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_12 RK29_CAM_POWERDNACTIVE_L   
+#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_12 RK29_CAM_POWERDNACTIVE_L
 #define CONFIG_SENSOR_FLASHACTIVE_LEVEL_12 RK29_CAM_FLASHACTIVE_L
 #define CONFIG_SENSOR_TORCHACTIVE_LEVEL_12 RK29_CAM_TORCHACTIVE_L
 #define CONFIG_SENSOR_DVDD_VALUE_12 VDD_18V
@@ -284,7 +284,7 @@
 #define CONFIG_SENSOR_TORCH_PIN_13         INVALID_GPIO
 #define CONFIG_SENSOR_POWERACTIVE_LEVEL_13 RK29_CAM_POWERACTIVE_L
 #define CONFIG_SENSOR_RESETACTIVE_LEVEL_13 RK29_CAM_RESETACTIVE_L
-#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_13 RK29_CAM_POWERDNACTIVE_H   
+#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_13 RK29_CAM_POWERDNACTIVE_H
 #define CONFIG_SENSOR_FLASHACTIVE_LEVEL_13 RK29_CAM_FLASHACTIVE_L
 #define CONFIG_SENSOR_TORCHACTIVE_LEVEL_13 RK29_CAM_TORCHACTIVE_L
 #define CONFIG_SENSOR_DVDD_VALUE_13 VDD_18V
@@ -318,7 +318,7 @@
 #define CONFIG_SENSOR_TORCH_PIN_14         INVALID_GPIO
 #define CONFIG_SENSOR_POWERACTIVE_LEVEL_14 RK29_CAM_POWERACTIVE_L
 #define CONFIG_SENSOR_RESETACTIVE_LEVEL_14 RK29_CAM_RESETACTIVE_L
-#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_14 RK29_CAM_POWERDNACTIVE_L   
+#define CONFIG_SENSOR_POWERDNACTIVE_LEVEL_14 RK29_CAM_POWERDNACTIVE_L
 #define CONFIG_SENSOR_FLASHACTIVE_LEVEL_14 RK29_CAM_FLASHACTIVE_L
 #define CONFIG_SENSOR_TORCHACTIVE_LEVEL_14 RK29_CAM_TORCHACTIVE_L
 #define CONFIG_SENSOR_DVDD_VALUE_14 VDD_15V
@@ -343,7 +343,7 @@
 #elif defined(CONFIG_MALATA_D7022)
 #define CONFIG_SENSOR_ORIENTATION_15      0
 #else
-#define CONFIG_SENSOR_ORIENTATION_15      270
+#define CONFIG_SENSOR_ORIENTATION_15      90
 #endif
 #define CONFIG_SENSOR_POWER_PIN_15         INVALID_GPIO
 #define CONFIG_SENSOR_RESET_PIN_15         INVALID_GPIO
@@ -452,7 +452,7 @@ static void all_rk_cif_power(int on,enum rk29camera_vdd_val vdd_val)
         printk("get cif ldo failed!\n");
 		return;
 	    }
-    if(on == 0){	
+    if(on == 0){
 		while(regulator_is_enabled(ldo_28)>0)
     		regulator_disable(ldo_28);
     	regulator_put(ldo_28);
@@ -493,7 +493,7 @@ static void rk_cif_power(struct rk29camera_gpio_res *res,int on,enum rk29camera_
         printk("get cif ldo failed!\n");
 		return;
 	    }
-    if(on == 0){	
+    if(on == 0){
 		while(regulator_is_enabled(ldo_28)>0)
     		regulator_disable(ldo_28);
     	regulator_put(ldo_28);
@@ -501,7 +501,7 @@ static void rk_cif_power(struct rk29camera_gpio_res *res,int on,enum rk29camera_
 		while(regulator_is_enabled(ldo_18)>0)
     		regulator_disable(ldo_18);
     	regulator_put(ldo_18);
-    	
+
 		mdelay(150);
 	if (camera_power != INVALID_GPIO)  {
 		  if (camera_io_init & RK29_CAM_POWERACTIVE_MASK) {
@@ -528,7 +528,7 @@ static void rk_cif_power(struct rk29camera_gpio_res *res,int on,enum rk29camera_
 	if (camera_power != INVALID_GPIO)  {
 		  if (camera_io_init & RK29_CAM_POWERACTIVE_MASK) {
 			gpio_set_value(camera_power, ((camera_ioflag&RK29_CAM_POWERACTIVE_MASK)>>RK29_CAM_POWERACTIVE_BITPOS));
-  
+
 		  }
 
 }
@@ -714,7 +714,7 @@ static struct reginfo_t rk_init_data_sensor_winseqreg_17[] =
 #endif
 
 
-static rk_sensor_user_init_data_s rk_init_data_sensor[RK_CAM_NUM] = 
+static rk_sensor_user_init_data_s rk_init_data_sensor[RK_CAM_NUM] =
 {
     #if CONFIG_SENSOR_IIC_ADDR_0
     {
